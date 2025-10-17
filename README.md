@@ -28,8 +28,8 @@ brew install stow
 
 ```sh
 cd linux
-chmod +x script.sh
-./script.sh
+chmod +x setup.sh
+./setup.sh
 ```
 
 ■ macOSの場合

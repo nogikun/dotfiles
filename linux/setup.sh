@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # =============================== #
 #    Check System Requirements    #
 # ------------------------------- #
@@ -20,7 +22,7 @@ if [[ "$SHELL" != *"zsh"* ]]; then
 fi
 
 # 3. Checking Dependencies ------ #
-if ! command -v stow &> /dev/null; then
+if ! command -v stow > /dev/null 2>&1; then
   echo "⚠️ GNU Stow がインストールされていません。先にインストールしてください。"
   exit 1
 fi
@@ -31,7 +33,13 @@ fi
 # 1. zsh (Oh My Zsh)              #
 # =============================== #
 
+# dotfiles ディレクトリの絶対パス
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
 # zsh (Oh My Zsh) --------------- #
-stow zsh
+cd "$DOTFILES_DIR/linux" || exit 1
+stow -t ~ zsh
+
+echo "✅ Setup completed successfully!"
 
 # ------------------------------- #
