@@ -10,13 +10,30 @@
 
 ■ Linux
 
-```zsh
+```sh
 sudo apt install stow
 ```
 
 ■ macOS
 
-```zsh
+```sh
 brew install stow
 ```
 
+### 2. Run setup.sh
+
+自身のOSに従って任意のシェルスクリプトを実行する。
+
+■ Linuxの場合
+
+```sh
+cd linux
+chmod +x script.sh
+./script.sh
+```
+
+■ macOSの場合
+
+```text
+⚠️ 現在準備中：気が向いたら作ります。
+```
