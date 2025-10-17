@@ -1,4 +1,10 @@
 # dotfiles
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/nogikun/dotfiles?sort=semver)](https://github.com/nogikun/dotfiles/tags)
+[![Docs](https://img.shields.io/badge/Docs--0D1117?logo=github&logoColor=0D1117f&style=flat)](https://github.com/nogikun/dotfiles/wiki)
+<!-- 
+リリースしたら：
+[![GitHub release](https://img.shields.io/github/release/nogikun/dotfiles)](https://github.com/nogikun/dotfiles/releases)
+-->
 
 自身が利用する環境ファイルをこちらで管理する。  
 このリポジトリは、 `~` 直下に配置するようにしてください。
