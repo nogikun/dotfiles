@@ -9,7 +9,7 @@
 自身が利用する環境ファイルをこちらで管理する。  
 このリポジトリは、 `~` 直下に配置するようにしてください。
 
-## Getting started
+## 🚀 Getting started
 
 ### 1. Install tools
 
