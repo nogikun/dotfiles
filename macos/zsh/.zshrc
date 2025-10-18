@@ -1,6 +1,3 @@
-# Symbolic link to this file: ~/.zshrc -> linux/zsh/.zshrc
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -11,9 +8,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="heapbytes"
+# ZSH_THEME="common"
+ZSH_THEME="heapbytes-mac"
+# ZSH_THEME="rkj"
+# ZSH_THEME="heapbytes"
+# ZSH_THEME="simple"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,7 +75,7 @@ ZSH_THEME="heapbytes"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(virtualenv git docker brew github pyenv pip python celery zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(virtualenv git docker brew github pyenv pip python celery macos zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='nvim'
+#   export EDITOR='mvim'
 # fi
 
 # Compilation flags
@@ -240,8 +240,27 @@ function select-git-switch() {
 zle -N select-git-switch
 bindkey "^g" select-git-switch # 「control + G」で実行
 source "$HOME/.rye/env"
+export PATH=~/.npm-global/bin:$PATH
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=$PATH:/Users/takahashikazuaki/Library/Android/sdk/platform-tools
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+
+
+
+alias claude="/Users/takahashikazuaki/.claude/local/claude"
+
+. "$HOME/.local/bin/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/takahashikazuaki/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/takahashikazuaki/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
 
 # -- direnv --
 eval "$(direnv hook zsh)"

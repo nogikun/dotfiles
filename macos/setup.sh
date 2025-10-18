@@ -9,8 +9,8 @@
 # =============================== #
 
 # 1. Checking os ---------------- #
-if [[ "$(uname -s)" != "Linux" ]]; then
-  echo "❌️ This setup script is intended for Linux systems only."
+if [[ "$(uname -s)" != "Darwin" ]]; then
+  echo "❌️ This setup script is intended for macOS systems only."
   exit 1
 fi
 
@@ -23,8 +23,8 @@ fi
 
 # 3. Checking Dependencies ------ #
 if ! command -v stow > /dev/null 2>&1; then
-  echo "⚠️ GNU Stow がインストールされていません。先にインストールしてください。"
-  exit 1
+	echo "⚠️ GNU Stow がインストールされていません。先にインストールしてください。"
+	exit 1
 fi
 
 # =============================== #
@@ -37,7 +37,7 @@ fi
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 # zsh (Oh My Zsh) --------------- #
-cd "$DOTFILES_DIR/linux" || exit 1
+cd "$DOTFILES_DIR/macos" || exit 1
 stow -t ~ zsh
 # ------------------------------- #
 

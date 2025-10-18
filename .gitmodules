@@ -10,3 +10,15 @@
 [submodule "linux/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = linux/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "macos/zsh/.oh-my-zsh/custom/fzf-git"]
+	path = macos/zsh/.oh-my-zsh/custom/fzf-git
+	url = git@github.com:junegunn/fzf-git.sh.git
+[submodule "macos/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = macos/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule "macos/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = macos/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "macos/zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
+	path = macos/zsh/.oh-my-zsh/custom/plugins/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git

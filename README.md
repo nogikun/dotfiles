@@ -41,6 +41,8 @@ chmod +x setup.sh
 
 ■ macOSの場合
 
-```text
-⚠️ 現在準備中：気が向いたら作ります。
+```sh
+cd macos
+chmod +x setup.sh
+./setup.sh
 ```
