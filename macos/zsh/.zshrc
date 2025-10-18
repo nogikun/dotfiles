@@ -242,22 +242,22 @@ bindkey "^g" select-git-switch # 「control + G」で実行
 source "$HOME/.rye/env"
 export PATH=~/.npm-global/bin:$PATH
 
-export PATH=$PATH:/Users/takahashikazuaki/Library/Android/sdk/platform-tools
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 
 
 
-alias claude="/Users/takahashikazuaki/.claude/local/claude"
+alias claude="$HOME/.claude/local/claude"
 
 . "$HOME/.local/bin/env"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/takahashikazuaki/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/takahashikazuaki/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
