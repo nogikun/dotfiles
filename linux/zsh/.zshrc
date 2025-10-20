@@ -239,7 +239,7 @@ function select-git-switch() {
 }
 zle -N select-git-switch
 bindkey "^g" select-git-switch # 「control + G」で実行
-source "$HOME/.rye/env"
+# source "$HOME/.rye/env"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
