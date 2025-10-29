@@ -264,3 +264,8 @@ compinit
 
 # -- direnv --
 eval "$(direnv hook zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/takahashikazuaki/.lmstudio/bin"
+# End of LM Studio CLI section
+
