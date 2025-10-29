@@ -8,20 +8,26 @@ RPROMPT='[%F{red}%?%f]'
 
 get_ip_address() {
   local ip
-  if [[ "$(uname -r)" =~ "WSL" ]]; then
+  if [[ "$(uname)" =~ "Linux" ]]; then
     # WSLでのIPアドレス取得（WindowsホストマシンのIP）
     ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
     echo "%{$fg[green]%}${ip}%{$reset_color%}"
   else
-    # 通常のLinux環境でのIPアドレス取得
-    if [[ -n "$(ifconfig tun0 2>/dev/null)" ]]; then
-      ip=$(ifconfig tun0 | awk '/inet / {print $2}')
-    elif [[ -n "$(ifconfig wlan0 2>/dev/null)" ]]; then
-      ip=$(ifconfig wlan0 | awk '/inet / {print $2}')
+    if [[ "$(uname -r)" == "WSL" ]]; then
+      # WSLでのIPアドレス取得（WindowsホストマシンのIP）
+      ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+      echo "%{$fg[green]%}${ip}%{$reset_color%}"
     else
-      ip="No IP"
+      # 通常のLinux環境でのIPアドレス取得
+      if [[ -n "$(ifconfig tun0 2>/dev/null)" ]]; then
+        ip=$(ifconfig tun0 | awk '/inet / {print $2}')
+      elif [[ -n "$(ifconfig wlan0 2>/dev/null)" ]]; then
+        ip=$(ifconfig wlan0 | awk '/inet / {print $2}')
+      else
+        ip="No IP"
+      fi
+      echo "%{$fg[green]%}${ip}%{$reset_color%}"
     fi
-    echo "%{$fg[green]%}${ip}%{$reset_color%}"
   fi
 }
 
