@@ -31,6 +31,7 @@ fi
 #          Symlink Setup          #
 # ------------------------------- #
 # 1. zsh (Oh My Zsh)              #
+# 2. coding-agents                #
 # =============================== #
 
 # dotfiles ディレクトリの絶対パス
@@ -39,6 +40,17 @@ DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 # zsh (Oh My Zsh) --------------- #
 cd "$DOTFILES_DIR/macos" || exit 1
 stow -t ~ zsh
+# ------------------------------- #
+
+# coding-agents ----------------- #
+cd "$DOTFILES_DIR/macos/coding-agents/.copilot" || exit 1
+
+# ~/.copilot ディレクトリが存在しない場合は作成
+mkdir -p ~/.copilot
+
+# 適用
+stow -t ~/.copilot config.json
+stow -t ~/.copilot mcp-config.json
 # ------------------------------- #
 
 exec zsh
