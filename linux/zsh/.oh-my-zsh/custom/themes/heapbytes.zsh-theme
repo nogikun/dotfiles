@@ -1,3 +1,4 @@
+#!/bin/zsh
 #Author : Heapbytes <Gourav> (https://github.com/heapbytes)
 
 
@@ -6,11 +7,46 @@ PROMPT='╭─[%F{blue} %~%f] [%F{green} $(get_ip_address)%f] $(get_git_br
 
 RPROMPT='[%F{red}%?%f]'
 
+get_ip_for_linux() {
+    local ip_addrs=()
+    local IP
+    local ips
+    local iface
+
+    # 優先順リスト
+    for prefix in eth en wl nameserver; do
+        if [ "$prefix" = "nameserver" ]; then
+            ips=$(grep '^nameserver' /etc/resolv.conf | awk '{print $2}')
+            if [ -n "$ips" ]; then
+                for ip in $ips; do
+                    ip_addrs+=("$ip")
+                done
+            fi
+            continue
+        fi
+
+        for iface in $(ip -o link show | awk -F': ' '{print $2}' | grep -E "^${prefix}"); do
+            ips=$(ip -4 addr show "$iface" 2>/dev/null | grep -oP 'inet \K[\d.]+')
+            for ip in $ips; do
+                ip_addrs+=("$ip")
+            done
+        done
+    done
+
+    if [ ${#ip_addrs[@]} -gt 0 ]; then
+        IP=$(echo "${ip_addrs[*]}" | tr ' ' ',')
+    else
+        IP="IPアドレスが見つかりませんでした"
+    fi
+
+    echo "$IP"
+}
+
 get_ip_address() {
   local ip
   if [[ "$(uname)" =~ "Linux" ]]; then
     # WSLでのIPアドレス取得（WindowsホストマシンのIP）
-    ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+    ip=$(get_ip_for_linux)
     echo "%{$fg[green]%}${ip}%{$reset_color%}"
   else
     if [[ "$(uname -r)" == "WSL" ]]; then
