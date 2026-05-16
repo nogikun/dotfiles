@@ -11,6 +11,14 @@
 自身が利用する環境ファイルをこちらで管理する。  
 このリポジトリは、 `~` 直下に配置するようにしてください。
 
+## 📦 Included Configurations
+
+以下の設定ファイルが含まれています。
+
+- **zsh**: Oh My Zsh をベースとした設定
+- **WezTerm**: ターミナルエミュレータの設定
+- **Coding Agents**: AIコーディングエージェント用の設定
+
 ## 🚀 Getting started
 
 ### 1. Install tools

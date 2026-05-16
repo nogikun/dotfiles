@@ -42,6 +42,10 @@ cd "$DOTFILES_DIR/macos" || exit 1
 stow -t ~ zsh
 # ------------------------------- #
 
+# WezTerm ----------------------- #
+stow -t ~ wezterm
+# ------------------------------- #
+
 # coding-agents ----------------- #
 cd "$DOTFILES_DIR/macos/coding-agents/.copilot" || exit 1
 
