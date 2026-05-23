@@ -1,0 +1,54 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: setup
+
+  setup:
+    desc: Setup all dotfiles
+    deps:
+      - check-requirements
+      - link-zsh
+      - link-wezterm
+      - link-coding-agents
+    cmds:
+      - echo "✅ Setup completed successfully!"
+
+  check-requirements:
+    desc: Check system requirements
+    cmds:
+      - |
+        if [[ "$(uname -s)" != "Darwin" ]]; then
+          echo "❌️ This setup is intended for macOS systems only."
+          exit 1
+        fi
+      - |
+        if [[ "$SHELL" != *"zsh"* ]]; then
+          echo "⚠️ The default shell is not zsh."
+          echo "zsh をデフォルトシェルに設定してから再度実行してください。"
+          exit 1
+        fi
+      - |
+        if ! command -v stow > /dev/null 2>&1; then
+          echo "⚠️ GNU Stow がインストールされていません。先にインストールしてください。"
+          exit 1
+        fi
+
+  link-zsh:
+    desc: Link zsh configuration
+    cmds:
+      - stow -t ~ zsh
+
+  link-wezterm:
+    desc: Link wezterm configuration
+    cmds:
+      - stow -t ~ wezterm
+
+  link-coding-agents:
+    desc: Link coding-agents configuration
+    dir: coding-agents/.copilot
+    cmds:
+      - mkdir -p ~/.copilot
+      - stow -t ~/.copilot config.json
+      - stow -t ~/.copilot mcp-config.json
