@@ -1,4 +1,4 @@
-# Symbolic link to this file: ~/.zshrc -> linux/zsh/.zshrc
+# Symbolic link to this file: ~/.zshrc -> linux/wsl/zsh/.zshrc
 
 
 # If you come from bash you might have to change your $PATH.
@@ -244,4 +244,10 @@ bindkey "^g" select-git-switch # 「control + G」で実行
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # -- direnv --
-eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"export PATH="$HOME/.local/bin:$PATH"
+# Added by Hugging Face CLI installer
+export PATH="/home/takah/.local/bin:$PATH"
+
+# -- Android SDK (Windows side via WSL2) --
+export ANDROID_HOME=/mnt/c/Users/takah/AppData/Local/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
