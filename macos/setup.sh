@@ -57,6 +57,6 @@ stow -t ~/.copilot config.json
 stow -t ~/.copilot mcp-config.json
 # ------------------------------- #
 
-exec zsh
-
 echo "✅ Setup completed successfully!"
+
+exec zsh
