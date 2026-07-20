@@ -244,6 +244,6 @@ bindkey "^g" select-git-switch # 「control + G」で実行
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # -- direnv --
-eval "$(direnv hook zsh)"export PATH="$HOME/.local/bin:$PATH"
-# Added by Hugging Face CLI installer
-export PATH="/home/takah/.local/bin:$PATH"
+eval "$(direnv hook zsh)"
+
+export PATH="$HOME/.local/bin:$PATH"
