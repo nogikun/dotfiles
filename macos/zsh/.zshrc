@@ -155,7 +155,7 @@ alias yinstall='yay -S'
 
 precmd(){
 	precmd(){
-		echo 
+		echo
 	}
 }
 
@@ -246,10 +246,6 @@ export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 
-
-
-alias claude="$HOME/.claude/local/claude"
-
 . "$HOME/.local/bin/env"
 
 # Added by LM Studio CLI (lms)
@@ -264,3 +260,61 @@ compinit
 
 # -- direnv --
 eval "$(direnv hook zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/takahashikazuaki/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# sssh: Scan SSH（LAN内のSSHサーバーを調べる）
+function sssh() {
+  local host username scan_file
+  local common_users=("root" "admin" "ubuntu" "$USER" "pi")
+  local subnets=("192.168.1.0/24" "192.168.10.0/24")
+
+  scan_file="/tmp/nmap_scan_$$"
+
+  # スキャン完了を待つ
+  echo "スキャン中..."
+  nmap -p 22 ${subnets[@]} -oG "$scan_file" 2>/dev/null
+  echo "スキャン完了"
+
+  # ホスト選択
+  host=$(grep "/open/" "$scan_file" 2>/dev/null | \
+    awk '{print $2}' | \
+    sort -V | \
+    fzf --height 40% \
+        --reverse \
+        --border \
+        --prompt="SSH接続先 > " \
+        --preview 'nmap -sV -p 22 {}' \
+        --preview-window=right:50% \
+        --header="矢印キーで選択、Enterで次へ")
+
+  if [ -n "$host" ]; then
+    # ユーザー名選択
+    username=$(printf "%s\n" "${common_users[@]}" | \
+      fzf --height 20% \
+          --reverse \
+          --border \
+          --prompt="ユーザー名 > " \
+          --print-query \
+          --header="↑↓選択 | 直接入力可" | tail -1)
+
+    [ -n "$username" ] && ssh "$username@$host"
+  fi
+
+  rm -f "$scan_file"
+}
+
+# Added by Antigravity
+export PATH="/Users/takahashikazuaki/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/takahashikazuaki/.antigravity/antigravity/bin:$PATH"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Go binaries
+export PATH="$HOME/go/bin:$PATH"
+
+alias claude="/Users/takahashikazuaki/.claude/local/claude"

@@ -1,0 +1,73 @@
+{
+  "mcpServers": {
+    "TaskManager": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest", 
+        "run",
+        "@kazuph/mcp-taskmanager",
+        "--key",
+        "f3fbd809-16b7-4336-accf-a4bc4a12ee6f"
+      ],
+      "tools": ["*"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "tools": ["*"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "tools": ["*"]
+    },
+    "github": {
+      "type": "sse",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "tools": ["*"]
+    },
+    "huggingface": {
+      "type": "http",
+      "url": "https://hf.co/mcp",
+      "tools": ["*"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "tools": ["*"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest",
+        "--browserUrl",
+        "http://localhost:9222",
+        "--headless",
+        "true",
+        "--executablePath",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "--isolated",
+        "false",
+        "--channel",
+        "stable"
+      ],
+      "tools": ["*"]
+    },
+    "markitdown": {
+      "command": "uvx",
+      "args": [
+        "markitdown-mcp",
+        "markitdown-mcp==0.0.1a4"
+      ],
+      "tools": ["*"]
+    }
+  }
+}
+
