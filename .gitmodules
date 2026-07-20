@@ -1,14 +1,26 @@
-[submodule "linux/zsh/.oh-my-zsh/custom/fzf-git"]
-	path = linux/zsh/.oh-my-zsh/custom/fzf-git
+[submodule "linux/wsl/zsh/.oh-my-zsh/custom/fzf-git"]
+	path = linux/wsl/zsh/.oh-my-zsh/custom/fzf-git
 	url = https://github.com/junegunn/fzf-git.sh.git
-[submodule "linux/zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
-	path = linux/zsh/.oh-my-zsh/custom/plugins/zsh-completions
+[submodule "linux/wsl/zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
+	path = linux/wsl/zsh/.oh-my-zsh/custom/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
-[submodule "linux/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = linux/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+[submodule "linux/wsl/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = linux/wsl/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "linux/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = linux/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+[submodule "linux/wsl/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = linux/wsl/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "linux/ubuntu/zsh/.oh-my-zsh/custom/fzf-git"]
+	path = linux/ubuntu/zsh/.oh-my-zsh/custom/fzf-git
+	url = https://github.com/junegunn/fzf-git.sh.git
+[submodule "linux/ubuntu/zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
+	path = linux/ubuntu/zsh/.oh-my-zsh/custom/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "linux/ubuntu/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = linux/ubuntu/zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "linux/ubuntu/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = linux/ubuntu/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "macos/zsh/.oh-my-zsh/custom/fzf-git"]
 	path = macos/zsh/.oh-my-zsh/custom/fzf-git

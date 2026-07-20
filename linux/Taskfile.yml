@@ -6,12 +6,21 @@ tasks:
       - task: setup
 
   setup:
-    desc: Setup all dotfiles for Linux
+    desc: Setup dotfiles for Linux (WSL / ネイティブ Ubuntu を選択)
     deps:
       - check-requirements
-      - link-zsh
     cmds:
-      - echo "✅ Setup completed successfully!"
+      - |
+        echo "どちらの環境をセットアップしますか?"
+        echo "  1) WSL (Windows Subsystem for Linux)"
+        echo "  2) Ubuntu (ネイティブ)"
+        printf "番号を入力 [1/2]: "
+        read -r choice
+        case "$choice" in
+          1) task link-wsl ;;
+          2) task link-ubuntu ;;
+          *) echo "❌️ 無効な選択です。1 または 2 を入力してください。"; exit 1 ;;
+        esac
 
   check-requirements:
     desc: Check system requirements
@@ -33,7 +42,16 @@ tasks:
           exit 1
         fi
 
-  link-zsh:
-    desc: Link zsh configuration
+  link-wsl:
+    desc: Link zsh configuration (WSL)
+    dir: wsl
     cmds:
       - stow -t ~ zsh
+      - echo "✅ WSL 用の zsh 設定をリンクしました。"
+
+  link-ubuntu:
+    desc: Link zsh configuration (ネイティブ Ubuntu)
+    dir: ubuntu
+    cmds:
+      - stow -t ~ zsh
+      - echo "✅ Ubuntu 用の zsh 設定をリンクしました。"

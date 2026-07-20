@@ -34,10 +34,10 @@ fi
 # =============================== #
 
 # dotfiles ディレクトリの絶対パス
-DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 
 # zsh (Oh My Zsh) --------------- #
-cd "$DOTFILES_DIR/linux" || exit 1
+cd "$DOTFILES_DIR/linux/wsl" || exit 1
 stow -t ~ zsh
 # ------------------------------- #
 

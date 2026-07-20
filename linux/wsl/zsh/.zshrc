@@ -1,4 +1,5 @@
-# Symbolic link to this file: ~/.zshrc -> linux/zsh/.zshrc
+# Symbolic link to this file: ~/.zshrc -> linux/wsl/zsh/.zshrc
+
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -154,7 +155,7 @@ alias yinstall='yay -S'
 
 precmd(){
 	precmd(){
-		echo
+		echo 
 	}
 }
 
@@ -244,6 +245,14 @@ bindkey "^g" select-git-switch # 「control + G」で実行
 
 # -- direnv --
 eval "$(direnv hook zsh)"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# -- nvm --
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# -- Android SDK (Windows side via WSL2) --
+export ANDROID_HOME=/mnt/c/Users/takah/AppData/Local/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
