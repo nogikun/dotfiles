@@ -1,0 +1,16 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: setup
+
+  setup:
+    desc: Setup all dotfiles (Windows / oh-my-posh)
+    cmds:
+      - pwsh -NoProfile -File ./setup.ps1
+
+  setup-with-deps:
+    desc: Setup all dotfiles and install oh-my-posh via winget
+    cmds:
+      - pwsh -NoProfile -File ./setup.ps1 -InstallDeps

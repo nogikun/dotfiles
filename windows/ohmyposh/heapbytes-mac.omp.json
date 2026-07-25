@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "default",
+          "template": "╭─"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "default",
+          "properties": {
+            "style": "full",
+            "home_icon": "~",
+            "folder_separator_icon": "/"
+          },
+          "template": "[<blue> {{ .Path }}</>]"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "default",
+          "template": " [{{ if .Env.POSH_LOCAL_IP }}<green> {{ .Env.POSH_LOCAL_IP }}</>{{ else }}<red> No IP</>{{ end }}]"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "default",
+          "properties": {
+            "branch_icon": "",
+            "fetch_status": false,
+            "fetch_upstream_icon": false
+          },
+          "template": " (<blue> {{ .HEAD }}</>)"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "default",
+          "template": "{{ if .Env.VIRTUAL_ENV }} (<green> {{ base .Env.VIRTUAL_ENV }}</>){{ end }}"
+        },
+        {
+          "type": "project",
+          "style": "plain",
+          "foreground": "default",
+          "properties": {
+            "always_enabled": false
+          },
+          "template": "{{ if .Name }} (<yellow> {{ .Name }}</>){{ end }}"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "default",
+          "template": "╰─▶"
+        }
+      ]
+    }
+  ]
+}
