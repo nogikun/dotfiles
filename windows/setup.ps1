@@ -101,6 +101,13 @@ try {
   Write-Host '   (開発者モードを有効にすると次回からリンクになります)'
 }
 
+# Claude Code statusLine (macOS / Linux と共通の node スクリプト)
+if (Get-Command node -ErrorAction SilentlyContinue) {
+  node (Join-Path $DotfilesDir 'common/claude/setup.js')
+} else {
+  Write-Host '⚠️ node が見つからないため、Claude Code の statusLine 設定をスキップしました。' -ForegroundColor Yellow
+}
+
 Write-Host ''
 Write-Host '💡 プロンプトの記号を正しく表示するには、ターミナルのフォントに Nerd Font を設定してください。'
 Write-Host '✅ Setup completed successfully!' -ForegroundColor Green

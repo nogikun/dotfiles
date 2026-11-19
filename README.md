@@ -19,6 +19,7 @@
 - **PowerShell**: oh-my-posh をベースとした設定 (Windows)
 - **WezTerm**: ターミナルエミュレータの設定
 - **Coding Agents**: AIコーディングエージェント用の設定
+- **Claude Code**: statusLine の設定 (macOS / Linux / Windows 共通、`common/claude/`)
 
 ## 🚀 Getting started
 
@@ -90,4 +91,21 @@ oh-my-posh へ移植した `windows/ohmyposh/heapbytes-mac.omp.json` を使用�
 ```
 ╭─[ ~/dotfiles] [ 192.168.1.5] ( main) ( .venv) ( dotfiles)
 ╰─▶
+```
+
+### Claude Code の statusLine
+
+各 OS の setup スクリプトが `node common/claude/setup.js` を実行し、
+`~/.claude/settings.json` の `statusLine` だけを `common/claude/statusline.js` に向けます。
+settings.json のほかの設定 (hooks や permissions など) はそのまま残ります。node が必要です。
+
+```
+Opus 5.5 | ctx: 42% | 5h: 90% | 7d: -
+```
+
+setup.js だけを単体で実行することもできます。statusline.js をリポジトリから直接参照しているため、
+dotfiles の置き場所を移動したときは再実行してください。
+
+```sh
+node common/claude/setup.js
 ```
