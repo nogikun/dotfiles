@@ -317,4 +317,25 @@ export PATH="/Users/takahashikazuaki/.antigravity/antigravity/bin:$PATH"
 # Go binaries
 export PATH="$HOME/go/bin:$PATH"
 
-alias claude="/Users/takahashikazuaki/.claude/local/claude"
+alias claude="$HOME/.local/bin/claude"
+
+# Homebrew Ruby (システムRubyより優先)
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/takahashikazuaki/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/takahashikazuaki/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/takahashikazuaki/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# --- nvm を最後に有効化して /usr/local/bin の古い node より優先させる ---
+# （.zprofile が nvm 読み込み後に /usr/local/bin を PATH 先頭へ再追加するため、ここで上書き）
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use default >/dev/null 2>&1
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"
