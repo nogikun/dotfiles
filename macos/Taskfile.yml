@@ -12,6 +12,7 @@ tasks:
       - link-zsh
       - link-wezterm
       - link-coding-agents
+      - setup-claude
     cmds:
       - echo "✅ Setup completed successfully!"
 
@@ -52,3 +53,13 @@ tasks:
       - mkdir -p ~/.copilot
       - stow -t ~/.copilot config.json
       - stow -t ~/.copilot mcp-config.json
+
+  setup-claude:
+    desc: Point Claude Code statusLine at common/claude/statusline.js
+    cmds:
+      - |
+        if command -v node > /dev/null 2>&1; then
+          node ../common/claude/setup.js
+        else
+          echo "⚠️ node が見つからないため、Claude Code の statusLine 設定をスキップしました。"
+        fi

@@ -57,6 +57,14 @@ stow -t ~/.copilot config.json
 stow -t ~/.copilot mcp-config.json
 # ------------------------------- #
 
+# Claude Code statusLine -------- #
+if command -v node > /dev/null 2>&1; then
+  node "$DOTFILES_DIR/common/claude/setup.js"
+else
+  echo "⚠️ node が見つからないため、Claude Code の statusLine 設定をスキップしました。"
+fi
+# ------------------------------- #
+
 echo "✅ Setup completed successfully!"
 
 exec zsh

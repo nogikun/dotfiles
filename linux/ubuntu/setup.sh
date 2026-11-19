@@ -41,6 +41,14 @@ cd "$DOTFILES_DIR/linux/ubuntu" || exit 1
 stow -t ~ zsh
 # ------------------------------- #
 
+# Claude Code statusLine -------- #
+if command -v node > /dev/null 2>&1; then
+  node "$DOTFILES_DIR/common/claude/setup.js"
+else
+  echo "⚠️ node が見つからないため、Claude Code の statusLine 設定をスキップしました。"
+fi
+# ------------------------------- #
+
 exec zsh
 
 echo "✅ Setup completed successfully!"

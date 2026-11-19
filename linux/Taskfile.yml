@@ -21,6 +21,17 @@ tasks:
           2) task link-ubuntu ;;
           *) echo "❌️ 無効な選択です。1 または 2 を入力してください。"; exit 1 ;;
         esac
+      - task: setup-claude
+
+  setup-claude:
+    desc: Point Claude Code statusLine at common/claude/statusline.js
+    cmds:
+      - |
+        if command -v node > /dev/null 2>&1; then
+          node ../common/claude/setup.js
+        else
+          echo "⚠️ node が見つからないため、Claude Code の statusLine 設定をスキップしました。"
+        fi
 
   check-requirements:
     desc: Check system requirements
